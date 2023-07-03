@@ -22,4 +22,8 @@ export default {
 
 <style lang="scss">
 @use 'assets/scss/style.scss';
+
+body {
+    background-color: var(--light-grey);
+}
 </style>
