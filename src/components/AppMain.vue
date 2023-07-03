@@ -1,4 +1,6 @@
 <script>
+import PokemonList from './PokemonList.vue';
+
 
 export default {
     data() {
@@ -6,10 +8,15 @@ export default {
 
         };
     },
+    components: { PokemonList }
+
 }
 </script>
 
-<template></template>
+<template>
+    <PokemonList />
+</template>
+
 <style lang="scss">
 @use '../assets/scss/style.scss';
 </style>
