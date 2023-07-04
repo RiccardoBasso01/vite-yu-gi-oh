@@ -1,17 +1,11 @@
 <script>
-import axios from 'axios';
-const link = 'https://41tyokboji.execute-api.eu-central-1.amazonaws.com/dev/api/v1/pokemons?per=200';
+import { store } from '../data/store.js'
+
 export default {
     data() {
-        return {
-            cards: []
-        };
+        return { store };
     },
-    created() {
-        axios.get(link).then(res => {
-            this.cards = res.data.docs
-        })
-    }
+
 }
 </script>
 
@@ -19,7 +13,7 @@ export default {
     <div class="container-s">
 
         <section id="card-list">
-            <div class="card" v-for="card in this.cards">
+            <div class="card" v-for="card in store.cards">
                 <div class="card-img">
                     <a href="#">
                         <img :src="card.imageUrl" :alt="card.name">

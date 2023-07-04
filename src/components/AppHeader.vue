@@ -2,6 +2,7 @@
 export default {
     data() {
         return {
+            selectedType: undefined,
             types: [
                 "Bug",
                 "Dark",
@@ -37,9 +38,9 @@ export default {
 
     <div class="navbar-header">
         Seleziona Pokemon per tipo:
-        <select class="form-select">
+        <select v-model="this.selectedType">
             <option selected>Nessun Tipo</option>
-            <option v-for="(type, i) in types" :value="i + 1">{{ type }}</option>
+            <option v-for="(type) in types" :key="type" :value="type">{{ type }}</option>
         </select>
     </div>
 </template>
