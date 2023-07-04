@@ -7,18 +7,33 @@ import AppMain from './components/AppMain.vue';
 import { store } from './data/store.js';
 
 export default {
-    created() {
-        axios.get(link).then(res => {
-            store.cards = res.data.docs
-        })
+    data() {
+        return {
+            typeFilter: ''
+        }
     },
-    components: { AppHeader, AppMain }
+    components: { AppHeader, AppMain },
+    methods: {
+        pokemonList(url) {
+            axios.get(url).then(res => {
+                store.cards = res.data.docs
+            })
+        },
+        onTypeChange(type) {
+            this.typeFilter = type
+            const filteredLink = `${link}&eq[type1]=${type}`
+            this.pokemonList(filteredLink)
+        }
+    },
+    created() {
+        this.pokemonList(link)
+    }
 }
 </script>
 
 <template>
     <!-- header -->
-    <AppHeader />
+    <AppHeader @type-change="onTypeChange" />
 
     <!-- main -->
     <AppMain />

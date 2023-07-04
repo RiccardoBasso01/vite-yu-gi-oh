@@ -25,6 +25,7 @@ export default {
             ]
         };
     },
+    emits: ['type-change']
 }
 </script>
 
@@ -38,8 +39,8 @@ export default {
 
     <div class="navbar-header">
         Seleziona Pokemon per tipo:
-        <select v-model="this.selectedType">
-            <option selected>Nessun Tipo</option>
+        <select v-model="this.selectedType" @change="$emit('type-change', selectedType)">
+            <option selected value="">Nessun Tipo</option>
             <option v-for="(type) in types" :key="type" :value="type">{{ type }}</option>
         </select>
     </div>
