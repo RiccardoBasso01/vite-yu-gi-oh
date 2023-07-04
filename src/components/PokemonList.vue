@@ -1,6 +1,6 @@
 <script>
 import axios from 'axios';
-const link = 'https://41tyokboji.execute-api.eu-central-1.amazonaws.com/dev/api/v1/pokemons?eq[type1]=Electric&sort[number]=desc';
+const link = 'https://41tyokboji.execute-api.eu-central-1.amazonaws.com/dev/api/v1/pokemons?per=200';
 export default {
     data() {
         return {

@@ -2,7 +2,26 @@
 export default {
     data() {
         return {
-
+            types: [
+                "Bug",
+                "Dark",
+                "Dragon",
+                "Electric",
+                "Fairy",
+                "Fighting",
+                "Fire",
+                "Flying",
+                "Ghost",
+                "Grass",
+                "Ground",
+                "Ice",
+                "Normal",
+                "Poison",
+                "Psychic",
+                "Rock",
+                "Steel",
+                "Water"
+            ]
         };
     },
 }
@@ -10,12 +29,19 @@ export default {
 
 <template>
     <header>
-
         <div class="title">
             <h1>POKÈDEX</h1>
             <img src="/icon.png" alt="">
         </div>
     </header>
+
+    <div class="navbar-header">
+        Seleziona Pokemon per tipo:
+        <select class="form-select">
+            <option selected>Nessun Tipo</option>
+            <option v-for="(type, i) in types" :value="i + 1">{{ type }}</option>
+        </select>
+    </div>
 </template>
 
 <style lang="scss" scoped>
@@ -24,6 +50,15 @@ export default {
 header {
     background-color: rgb(9, 9, 85);
     height: 100px;
+}
+
+.navbar-header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+    color: white;
+    text-align: center;
 }
 
 h1 {

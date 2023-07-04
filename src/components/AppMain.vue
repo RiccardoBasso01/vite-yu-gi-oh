@@ -23,8 +23,6 @@ export default {
 @use '../assets/scss/style.scss';
 
 main {
-    height: calc(100vh - 100px);
     padding: 50px 0;
-    overflow: auto;
 }
 </style>
